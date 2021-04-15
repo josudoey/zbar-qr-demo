@@ -1,0 +1,39 @@
+{
+  "name": "zbar-qr-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "webpack"
+  ],
+  "scripts": {
+    "dev": "webpack serve --config webpack/config.dev.js",
+    "build": "NODE_ENV=production webpack --config webpack/config.js",
+    "install-yarn2": "yarn set version berry;test -f && echo 'nodeLinker: node-modules' | tee -a .yarnrc.yml",
+    "upgrade": "yarn plugin import interactive-tools&&yarn upgrade-interactive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josudoey/zbar-qr-demo.git"
+  },
+  "author": "Joey Fang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josudoey/zbar-qr-demo/issues"
+  },
+  "homepage": "https://github.com/josudoey/zbar-qr-demo#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "bootstrap-vue": "^2.21.2",
+    "eslint": "^7.24.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "vue": "^2.6.12",
+    "vue-router": "^3.5.1",
+    "webpack": "^5.33.2",
+    "zbar-qr": "^1.1.0",
+    "~webpack": "workspace:webpack"
+  }
+}

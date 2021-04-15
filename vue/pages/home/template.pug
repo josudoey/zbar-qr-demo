@@ -1,0 +1,19 @@
+.container-fluid.px-0
+  nav.navbar.navbar-dark.bg-dark
+    .navbar-brand.d-flex
+      div zbar-qr-demo
+      open-image.ml-1(@load="scan")
+  .container-fluid
+    b-card(no-body)
+      b-card-header(header-tag='nav')
+        b-nav.mb-1(card-header tabs)
+          b-nav-item(:active="tabIndex==='image'" @click="tabIndex='image'")
+            | 圖片
+          b-nav-item(v-if='result' :active="tabIndex==='result'" @click="tabIndex='result'")
+            | 結果
+      b-card-body(v-show="tabIndex==='image'")
+        .d-flex.align-items-center.justify-content-around.mt-2
+          canvas.w-50(ref="canvas")
+          canvas.w-50(ref="qrcode")
+      b-card-body(v-if="tabIndex==='result'")
+        pre {{result}}
