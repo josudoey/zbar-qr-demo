@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "webpack serve --config webpack/config.dev.js",
     "build": "NODE_ENV=production webpack --config webpack/config.js",
-    "install-yarn2": "yarn set version berry;test -f && echo 'nodeLinker: node-modules' | tee -a .yarnrc.yml",
+    "install-yarn2": "yarn set version berry;echo 'nodeLinker: node-modules' | tee -a .yarnrc.yml",
     "upgrade": "yarn plugin import interactive-tools&&yarn upgrade-interactive"
   },
   "repository": {
