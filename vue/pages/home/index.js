@@ -27,20 +27,23 @@ export default {
       const result = await zbarScan(imageData)
       this.result = JSON.stringify(result, null, 4)
 
+      const qrcode = this.$refs.qrcode
+      const qrcodeCtx = qrcode.getContext('2d')
+      const W = 512
+      const H = 512
+
       const code = result.shift()
       if (!code) {
+        qrcodeCtx.clearRect(0, 0, W, H)
         return
       }
 
-      const qrcode = this.$refs.qrcode
       const p = code.loc
-      const W = 512
-      const H = 512
+
       Object.assign(qrcode, {
         width: W, height: H
       })
 
-      const qrcodeCtx = qrcode.getContext('2d')
       const qrcodeImage = qrcodeCtx.createImageData(W, H)
       const a = (p[3].x - p[0].x) / W
       const b = (p[1].x - p[0].x) / H
